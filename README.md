@@ -46,7 +46,7 @@
 
 - **필수 과제 2번 - Tick 함수 기반 동적 Transform 변경**
   
-  - 각 컴포넌트의 부모 컴포넌트에서 `PlatformAction(float DeltaTime)`를 선언하고
+  - 각 컴포넌트의 부모 컴포넌트에서 `PlatformAction(float DeltaTime)`을 선언하고
   - 자식 컴포넌트에서 `PlatformAction(float DeltaTime)`를 `override`하여 각 기능을 구현하고
   - 부모 컴포넌트에서 `Tick`함수에서 호출하여 기능을 사용한다.
  
