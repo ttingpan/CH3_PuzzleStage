@@ -40,7 +40,7 @@
 
 - **필수 과제 1번 - 서로 다른 Actor 클래스 2개 이상 구현**
   
-  - 이동, 회전, 크기 변화 등 각 기능을 컴포넌트로 만들어서 다른 액터에 부착하여 사용 가능하도록 함.
+  - 이동, 회전, 크기 변화 등 각 기능을 컴포넌트로 만들어서 다른 액터에 부착하여 사용 가능하도록 했다.
 
   ![image](https://github.com/user-attachments/assets/c3adb0ec-6708-4f8a-a3be-8e160f8befd8)
 
@@ -48,7 +48,7 @@
   
   - 각 컴포넌트의 부모 컴포넌트에서 `PlatformAction(float DeltaTime)`를 선언하고
   - 자식 컴포넌트에서 `PlatformAction(float DeltaTime)`를 `override`하여 각 기능을 구현하고
-  - 부모 컴포넌트에서 `Tick`함수에서 호출하여 기능을 사용함.
+  - 부모 컴포넌트에서 `Tick`함수에서 호출하여 기능을 사용한다.
  
 - 부모 컴포넌트(PuzzlePlatformComponent.cpp)
 
@@ -88,8 +88,8 @@ https://github.com/user-attachments/assets/bda5f4c4-2b92-45b5-9c06-25bb4d98e5af
 
 - **필수 과제 3번 - 리플렉션 적용**
   
-  - 직접 수정이 가능하도록 하기 위한 변수는 `UPROPERTY(EditAnywhere)`를 적용하고 블루프린트에서도 읽고 쓰기가 가능하게 하려면 `BlueprintReadWrite`를 추가 적용함.
-  - 단순히 값이 어떻게 변하는지 확인하는 용도로 사용 하기 위해서는 `UPROPERTY(VisibleAnywhere)`를 적용함.
+  - 직접 수정이 가능하도록 하기 위한 변수는 `UPROPERTY(EditAnywhere)`를 적용하고 블루프린트에서도 읽고 쓰기가 가능하게 하려면 `BlueprintReadWrite`를 추가 적용했다.
+  - 단순히 값이 어떻게 변하는지 확인하는 용도로 사용 하기 위해서는 `UPROPERTY(VisibleAnywhere)`를 적용했다.
 
 - PuzzlePlatformComponent.h 일부
 
@@ -106,9 +106,39 @@ https://github.com/user-attachments/assets/bda5f4c4-2b92-45b5-9c06-25bb4d98e5af
 
 - **도전 과제 1번 - 시간 제한과 카운트다운 활용**
   
-  - 각 컴포넌트의 부모 컴포넌트에서 `PlatformAction(float DeltaTime)`를 선언하고
-  - 자식 컴포넌트에서 `PlatformAction(float DeltaTime)`를 `override`하여 각 기능을 구현하고
-  - 부모 컴포넌트에서 `Tick`함수에서 호출하여 기능을 사용함.
+  - 각 기능 컴포넌트의 부모 컴포넌트에서 추가로 `동작 시작 딜레이`와 각 `동작 사이의 딜레이`를 입력받고 자식 컴포넌트에 적용했다.
+  - 추가로 크기 변화 기능을 이용하여 사라지는 발판을 만드려 했다.
+  - 그러나 크기 변화 속도를 너무 크게 해버리면 아예 액터가 보이지 않게 되거나 적당히 혹은 꽤나 빠르게 해도 상황에 따라서 버벅이는 현상이 생겼다.
+  - 그래서 그냥 새로운 `DisapperableComponent`를 만들어서 해결했다.
+    > `DisapperableComponent`는 `PuzzlePlatformComponent`를 상속받지 않는 독립적인 컴포넌트
+
+<details>
+<summary>나타나고 사라지는 동작</summary>
+
+
+https://github.com/user-attachments/assets/13a8aa8f-8238-4006-abda-a990e9c8538f
+</details>
+
+- **도전 과제 2번 - 랜덤 퍼즐 생성**
+  
+  - 단순히 액터를 랜덤(위치, 크기, 각도, 컴포넌트 등)으로 배치하여 각 기능이 잘 작동되는지 확인했다.
+  - 실제로 플레이어가 시작지점에서 끝지점까지 밟고 갈 수 있도록 만들지는 못했다.
+
+
+- 랜덤 스폰 및 기능 확인
+
+https://github.com/user-attachments/assets/d6a92d69-7a9f-44d4-97f3-7f4edb0c7b6d
+
+
+
+
+
+
+
+
+
+
+
 
 
 
